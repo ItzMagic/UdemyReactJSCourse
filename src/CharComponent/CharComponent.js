@@ -10,7 +10,7 @@ const divStyle = {
 
 const CharComponent = ({content}) => {
    return( // You need to return if the component is only output JSX 
-      <div>
+      <div style = {divStyle}>
       {
       (content ==! null) ? <div>  </div> : null
       }
