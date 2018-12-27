@@ -34,7 +34,7 @@ class App extends Component {
     counter: '',
     content: ''
   }
- 
+ //This function is suppose to loop through the content value in the current state and log each character in the string or array
   renderChars = () => {
     for(const char of this.state.content)
       console.log(char);
