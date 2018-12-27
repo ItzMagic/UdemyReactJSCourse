@@ -6,7 +6,7 @@ const validationComponent = ({count}) => {
         <div>
             {
                 (count < 5) ? <div>Text entry is too short submit</div> : <div>Your entry has met the requirements and ready for submission</div>
-            }a
+            }
         </div>
         
     )

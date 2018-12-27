@@ -8,13 +8,16 @@ const divStyle = {
    border: '1px solid block'
 };
 
-const CharComponent = ({content}) => {
+const CharComponent = ({txt}) => {
    return( // You need to return if the component is only output JSX 
       <div style = {divStyle}>
-      {
-      (content ==! null) ? <div>  </div> : null
-      }
+      {/* {
+      (txtAreaValue != null) ? 
+      for(let char of this.state.content)
+      console.log(char); : null
+      } */}
+      trying to return the each letter of the array through here 
       </div>
-      )
+   )
 }
 export default CharComponent;

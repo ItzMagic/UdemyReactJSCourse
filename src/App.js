@@ -24,7 +24,7 @@ import Options from './Options/Options';
 import ValidationComponent from './ValidationComponent/ValidationCompontent';
 import CharComponent from './CharComponent/CharComponent';
 
-class App extends Component {
+class App extends Component { 
   state={
     persons: [
       { name: 'Coolboy55 ',
@@ -32,13 +32,13 @@ class App extends Component {
       }
     ],
     counter: '',
-    content: ''
+    content: null
   }
  //This function is suppose to loop through the content value in the current state and log each character in the string or array
-  renderChars = () => {
-    for(const char of this.state.content)
-      console.log(char);
-  };
+  // renderChars = () => {
+  //   for(const char of this.state.content)
+  //     console.log(char);
+  // };
 
   txtAreaValue = (event) => {const txtAreaCharacterCount = event.target.value.length
       this.setState({ persons: [ { name: "Coolboy55 " }, { name: "we just changed the state of this app when you click the button " }], counter: txtAreaCharacterCount, content:event.target.value} )
@@ -52,19 +52,22 @@ class App extends Component {
   render() {
     const {persons,counter,content} = this.state; // get in the habbit of doing this here so you don't have to write for ex: this.state.persons
     return (
-      <div className="App">
+      <div className="App App-header">
         <p><button onClick={this.switchNameHandler}>Switch Name Handler</button></p>
         <h1>Hi this is a React App</h1>
         <Options word = { persons[0].name } price = "$20, a box of pizza and moutian dew">Text between Options's element tags are called children</Options>
         <textarea className="input" onChange={this.txtAreaValue} placeholder="Insert your thoughts about anything in here"></textarea>  
         <br/>
         {counter}
-        <ul>
-        <CharComponent txt = {content}></CharComponent>
-        </ul>
-        
-        <div >
-        <ValidationComponent chars = {counter}></ValidationComponent>
+
+        <div>
+          <ul>
+          <CharComponent txtAreaValue = {content} ></CharComponent>
+          </ul>
+        </div>
+
+        <div>
+        <ValidationComponent count = {counter}></ValidationComponent>
         </div> 
         
       </div>
