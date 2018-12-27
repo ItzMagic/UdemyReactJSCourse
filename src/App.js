@@ -40,7 +40,7 @@ class App extends Component {
       console.log(char);
   };
 
-  storeTxtArea = (event) => {const txtAreaCharacterCount = event.target.value.length
+  txtAreaValue = (event) => {const txtAreaCharacterCount = event.target.value.length
       this.setState({ persons: [ { name: "Coolboy55 " }, { name: "we just changed the state of this app when you click the button " }], counter: txtAreaCharacterCount, content:event.target.value} )
   };
 
@@ -56,7 +56,7 @@ class App extends Component {
         <p><button onClick={this.switchNameHandler}>Switch Name Handler</button></p>
         <h1>Hi this is a React App</h1>
         <Options word = { persons[0].name } price = "$20, a box of pizza and moutian dew">Text between Options's element tags are called children</Options>
-        <textarea className="input" onChange={this.storeTxtArea} placeholder="Insert your thoughts about anything in here"></textarea>  
+        <textarea className="input" onChange={this.txtAreaValue} placeholder="Insert your thoughts about anything in here"></textarea>  
         <br/>
         {counter}
         <ul>
