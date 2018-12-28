@@ -24,6 +24,7 @@ import Options from './Options/Options';
 import ValidationComponent from './ValidationComponent/ValidationCompontent';
 import CharComponent from './CharComponent/CharComponent';
 
+
 class App extends Component { 
   state={
     persons: [
@@ -31,21 +32,26 @@ class App extends Component {
         inputContent: '',
       }
     ],
+    
     counter: '',
-    content: '' // can't be null since we are using 0 in the ternary function in the render porition
-  }
-
-  characterRender =  () => {
-    this.state.content.forEach(function (value){
-      console.log(value)
-    })
-  }
-
-  txtAreaValue = (event) => {const txtAreaCharacterCount = event.target.value.length
-      this.setState({ persons: [ { name: "Coolboy55 " }, { name: "we just changed the state of this app when you click the button " }], counter: txtAreaCharacterCount, content:event.target.value} )
+    content: '', // can't be null since we are using 0 in the ternary function in the render porition
+    arrayOfCharactersOfTheContentString:[]
   };
 
-  switchNameHandler = (event) => {
+  characterRender =  () => {
+    let valueOfCurrentStateContent = this.state.content.map;
+    for (var i = 0; i < valueOfCurrentStateContent.length; i++) {
+        valueOfCurrentStateContent.push(this.State.arrayOfCharactersOfTheContentString)
+        console.log(this.arrayOfCharactersOfTheContentString)
+    }
+    };
+  
+
+  txtAreaValue = (event) => {const txtAreaCharacterCount = event.target.value.length
+      this.setState({ persons: [ { name: "Coolboy55 " }, { name: "we just changed the state of this app when you clicked the button " }], counter: txtAreaCharacterCount, content: event.target.value, arrayOfCharactersOfTheContentString: event.target.value, } )
+  };
+
+  switchNameHandler = () => {
     console.log(' switchNameHandler was clicked!');
     this.setState({ persons: [ { name: "we just changed the state of this app when you click the button  " } ],})
     };
@@ -57,7 +63,7 @@ class App extends Component {
         <p><button onClick={this.switchNameHandler}>Switch Name Handler</button></p>
         <h1>Hi this is a React App</h1>
         <Options word = { persons[0].name } price = "$20, a box of pizza and moutian dew">Text between Options's element tags are called children</Options>
-        <textarea className="input" onChange={this.txtAreaValue} placeholder="Insert your thoughts about anything in here"></textarea>  
+        <textarea type="value" className="input" onChange= { this.txtAreaValue } placeholder="Insert your thoughts about anything here"></textarea>  
         
         <br/>
 
@@ -66,7 +72,7 @@ class App extends Component {
         { this.state.content.length > 0 ?
             <div>
               <ul>
-              <CharComponent txtAreaValue = {content} > </CharComponent>
+              <CharComponent characters = {content}></CharComponent>
               </ul>
             </div> : null
         }
@@ -74,6 +80,7 @@ class App extends Component {
         <div>
           <ValidationComponent count = {counter}></ValidationComponent>
         </div> 
+      
         
       </div>
     );
