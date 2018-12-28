@@ -34,11 +34,14 @@ class App extends Component {
     counter: '',
     content: null
   }
- //This function is suppose to loop through the content value in the current state and log each character in the string or array
-  // renderChars = () => {
-  //   for(const char of this.state.content)
-  //     console.log(char);
-  // };
+
+
+
+  characterRender =  () => {
+    this.state.content.forEach(function (value){
+      console.log(value)
+    })
+  }
 
   txtAreaValue = (event) => {const txtAreaCharacterCount = event.target.value.length
       this.setState({ persons: [ { name: "Coolboy55 " }, { name: "we just changed the state of this app when you click the button " }], counter: txtAreaCharacterCount, content:event.target.value} )
@@ -60,14 +63,16 @@ class App extends Component {
         <br/>
         {counter}
 
-        <div>
-          <ul>
-          <CharComponent txtAreaValue = {content} ></CharComponent>
-          </ul>
-        </div>
+        { this.state.content ?
+            <div>
+              <ul>
+              <CharComponent txtAreaValue = {content} ></CharComponent>
+              </ul>
+            </div> : null
+        }
 
         <div>
-        <ValidationComponent count = {counter}></ValidationComponent>
+          <ValidationComponent count = {counter}></ValidationComponent>
         </div> 
         
       </div>
