@@ -32,10 +32,8 @@ class App extends Component {
       }
     ],
     counter: '',
-    content: [],
+    content: '' // can't be null since we are using 0 in the ternary function in the render porition
   }
-
-
 
   characterRender =  () => {
     this.state.content.forEach(function (value){
@@ -60,13 +58,15 @@ class App extends Component {
         <h1>Hi this is a React App</h1>
         <Options word = { persons[0].name } price = "$20, a box of pizza and moutian dew">Text between Options's element tags are called children</Options>
         <textarea className="input" onChange={this.txtAreaValue} placeholder="Insert your thoughts about anything in here"></textarea>  
+        
         <br/>
+
         {counter}
 
         { this.state.content.length > 0 ?
             <div>
               <ul>
-              <CharComponent txtAreaValue = {content} ></CharComponent>
+              <CharComponent txtAreaValue = {content} > </CharComponent>
               </ul>
             </div> : null
         }
