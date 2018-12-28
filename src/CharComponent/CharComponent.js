@@ -8,21 +8,5 @@ const divStyle = {
    border: '1px solid block'
 };
 
-const CharComponent = ({textAreaContent}) => {
-   return( 
-   // You need to return if the component is only output JSX 
-   //    {
-   //    (txtAreaValue != null) ? 
-   //    this.content.forEach(element => console.log(element)
-   //    <div style = {divStyle}>
-   //    </div>
-   //    }
-   <div style = {divStyle}> {textAreaContent.forEach(function(value) 
-      {
-      console.log(value)
-      }
-   </div>
-   
-   )}
-}
+const CharComponent = ({textAreaContent}) => { return ( <div style = {divStyle}> { this.textAreaContent((textAreaContent , index) => { console.log(textAreaContent[0]) )} }; </div> ) }
 export default CharComponent;

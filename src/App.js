@@ -32,7 +32,7 @@ class App extends Component {
       }
     ],
     counter: '',
-    content: null
+    content: [],
   }
 
 
@@ -63,7 +63,7 @@ class App extends Component {
         <br/>
         {counter}
 
-        { this.state.content ?
+        { this.state.content.length > 0 ?
             <div>
               <ul>
               <CharComponent txtAreaValue = {content} ></CharComponent>
