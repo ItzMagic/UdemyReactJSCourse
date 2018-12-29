@@ -28,27 +28,24 @@ import CharComponent from './CharComponent/CharComponent';
 class App extends Component { 
   state={
     persons: [
-      { name: 'Coolboy55 ',
-        inputContent: '',
-      }
+      { name: ' Coolboy55 '},
+      { name: ' ThatGuy '},
+      { name: ' Troll '},
+      { name: 'Coolboy55 '}
     ],
-    
     counter: '',
-    content: '', // can't be null since we are using 0 in the ternary function in the render porition
-    arrayOfCharactersOfTheContentString:[]
+    content: '', // this.state.content can't be null since we are using 0 in the ternary function in the render porition
+    arrayOfCharactersOfTheContentString: []
+    
   };
 
-  characterRender =  () => {
-    let valueOfCurrentStateContent = this.state.content.map;
-    for (var i = 0; i < valueOfCurrentStateContent.length; i++) {
-        valueOfCurrentStateContent.push(this.State.arrayOfCharactersOfTheContentString)
-        console.log(this.arrayOfCharactersOfTheContentString)
-    }
-    };
-  
+  simplefunction = () => {
+    console.log('the simple function is working!')
+  }
 
   txtAreaValue = (event) => {const txtAreaCharacterCount = event.target.value.length
-      this.setState({ persons: [ { name: "Coolboy55 " }, { name: "we just changed the state of this app when you clicked the button " }], counter: txtAreaCharacterCount, content: event.target.value, arrayOfCharactersOfTheContentString: event.target.value, } )
+      this.setState({ persons: [ { name: "Coolboy55 " } ], counter: txtAreaCharacterCount, content: event.target.value,
+      arrayOfCharactersOfTheContentString: event.target.value.split('') } )
   };
 
   switchNameHandler = () => {
@@ -57,7 +54,7 @@ class App extends Component {
     };
 
   render() {
-    const {persons,counter,content} = this.state; // get in the habbit of doing this here so you don't have to write for ex: this.state.persons
+    const {persons,counter,content,arrayOfCharactersOfTheContentString} = this.state; // get in the habbit of doing this here so you don't have to write for ex: this.state.persons
     return (
       <div className="App App-header">
         <p><button onClick={this.switchNameHandler}>Switch Name Handler</button></p>
@@ -68,8 +65,9 @@ class App extends Component {
         <br/>
 
         {counter}
-
-        { this.state.content.length > 0 ?
+        
+        { 
+          this.state.content.length > 0 ? 
             <div>
               <ul>
               <CharComponent characters = {content}></CharComponent>
