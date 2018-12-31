@@ -38,23 +38,27 @@ class App extends Component {
     arrayOfCharactersOfTheContentString: []
     
   };
-
-  simplefunction = () => {
-    console.log('the simple function is working!')
-  }
+  
+  renderEachCharacterInArray = () => {
+    for (let char of this.state.arrayOfCharactersOfTheContentString) {
+      console.log( char );
+    }
+    
+}
 
   txtAreaValue = (event) => {const txtAreaCharacterCount = event.target.value.length
       this.setState({ persons: [ { name: "Coolboy55 " } ], counter: txtAreaCharacterCount, content: event.target.value,
-      arrayOfCharactersOfTheContentString: event.target.value.split('') } )
+      arrayOfCharactersOfTheContentString: event.target.value.split('')  } )
   };
 
   switchNameHandler = () => {
     console.log(' switchNameHandler was clicked!');
-    this.setState({ persons: [ { name: "we just changed the state of this app when you click the button  " } ],})
+    this.setState({ persons: [ { name: "we just changed the state of this app when you click the button  " } ],});
+    this.renderEachCharacterInArray();
     };
 
   render() {
-    const {persons,counter,content,arrayOfCharactersOfTheContentString} = this.state; // get in the habbit of doing this here so you don't have to write for ex: this.state.persons
+    const { persons,counter } = this.state; // get in the habbit of doing this here so you don't have to write for ex: this.state.persons
     return (
       <div className="App App-header">
         <p><button onClick={this.switchNameHandler}>Switch Name Handler</button></p>
@@ -70,14 +74,17 @@ class App extends Component {
           this.state.content.length > 0 ? 
             <div>
               <ul>
-              <CharComponent characters = {content}></CharComponent>
+              <CharComponent list= { this.arrayOfCharactersOfTheContentString } callBack = {this.renderEachCharacterInArray} />
               </ul>
             </div> : null
         }
 
         <div>
-          <ValidationComponent count = {counter}></ValidationComponent>
+          <ValidationComponent count = { counter }></ValidationComponent>
         </div> 
+        <div>
+          
+        </div>
       
         
       </div>
