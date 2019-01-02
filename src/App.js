@@ -38,7 +38,13 @@ class App extends Component {
     arrayOfCharactersOfTheContentString: []
     
   };
-  
+
+  deleteCharacterHandler = ( index ) => {
+    const text = this.state.arrayOfCharactersOfTheContentString;
+    text.splice(index , 1);
+    const updatedText = text.join('');
+    this.setState({userInput: updatedText});
+  }
 
   txtAreaValue = (event) => {const txtAreaCharacterCount = event.target.value.length
       this.setState({ persons: [ { name: "Coolboy55 " } ], counter: txtAreaCharacterCount, content: event.target.value,
@@ -53,8 +59,13 @@ class App extends Component {
 
   render() {
     // Javascript must be placed here BEFORE THE RETURN
-    const charList = this.state.arrayOfCharactersOfTheContentString.map(char =>{
-      return <CharComponent character = {char}/>;})
+    const charList = this.state.arrayOfCharactersOfTheContentString.map((char, index)=> {
+        return <CharComponent
+        character={char} 
+        key={index} 
+        clicked ={() => this.deleteCharacterHandler(index)}/>;
+        
+        });
 
     const { persons,counter } = this.state; // get in the habbit of doing this here so you don't have to write for ex: this.state.persons
 
