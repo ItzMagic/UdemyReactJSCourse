@@ -84,7 +84,7 @@ class App extends Component {
           this.state.content.length > 0 ? 
             <div>
               <ul>
-              <CharComponent list= { this.arrayOfCharactersOfTheContentString } callBack = {this.renderEachCharacterInArray} />
+              {charList}
               </ul>
             </div> : null
         }
@@ -93,7 +93,7 @@ class App extends Component {
           <ValidationComponent count = { counter }></ValidationComponent>
         </div> 
         
-          {charList}
+         
         
       
         
