@@ -1,17 +1,17 @@
 import React from 'react';
 
-
-// I am assuming that I can only use simple ternary code in the JSX which is why this isn't working here I will make this into a function in the app.js
 const char = (props)  => {
-         const divStyle = {
-            display: 'display: inline-block',
-            padding: '16px', 
-            textAlign: 'center',
-            margin: '16px',
-            border: '1px solid block'
-         };
+   const divStyle = {
+      display: 'inline-block',
+      padding: '16px', 
+      textAlign: 'center',
+      margin: '16px',
+      border: '1px solid block',
+      textAlign: 'center'
+   };
+
    return(
-      <div style = {divStyle}>
+      <div style = { divStyle }>
          {props.character}
       </div>
    )

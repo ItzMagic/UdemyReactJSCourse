@@ -39,11 +39,6 @@ class App extends Component {
     
   };
   
-  renderEachCharacterInArray = () => {  
-    for (let char of this.state.arrayOfCharactersOfTheContentString) {
-      return(<div>{char}</div>)
-    }
-  }
 
   txtAreaValue = (event) => {const txtAreaCharacterCount = event.target.value.length
       this.setState({ persons: [ { name: "Coolboy55 " } ], counter: txtAreaCharacterCount, content: event.target.value,
