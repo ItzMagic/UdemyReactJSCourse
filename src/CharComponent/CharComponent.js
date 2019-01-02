@@ -1,18 +1,23 @@
 import React from 'react';
 
-const divStyle = {
-   display: 'display: inline-block',
-   padding: '16px', 
-   textAlign: 'center',
-   margin: '16px',
-   border: '1px solid block'
-};
+
 // I am assuming that I can only use simple ternary code in the JSX which is why this isn't working here I will make this into a function in the app.js
-const CharComponent = (props) => { return (    
-     <div style={divStyle}> {props.callBack()} </div>
+const char = (props)  => {
+         const divStyle = {
+            display: 'display: inline-block',
+            padding: '16px', 
+            textAlign: 'center',
+            margin: '16px',
+            border: '1px solid block'
+         };
+   return(
+      <div style = {divStyle}>
+         {props.character}
+      </div>
+   )
+};
 
-) };
 
 
 
-export default CharComponent;
+export default char;

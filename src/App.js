@@ -39,12 +39,11 @@ class App extends Component {
     
   };
   
-  renderEachCharacterInArray = () => {
+  renderEachCharacterInArray = () => {  
     for (let char of this.state.arrayOfCharactersOfTheContentString) {
-      console.log( char );
+      return(<div>{char}</div>)
     }
-    
-}
+  }
 
   txtAreaValue = (event) => {const txtAreaCharacterCount = event.target.value.length
       this.setState({ persons: [ { name: "Coolboy55 " } ], counter: txtAreaCharacterCount, content: event.target.value,
@@ -58,7 +57,12 @@ class App extends Component {
     };
 
   render() {
+    // Javascript must be placed here BEFORE THE RETURN
+    const charList = this.state.arrayOfCharactersOfTheContentString.map(char =>{
+      return <CharComponent character = {char}/>;})
+
     const { persons,counter } = this.state; // get in the habbit of doing this here so you don't have to write for ex: this.state.persons
+
     return (
       <div className="App App-header">
         <p><button onClick={this.switchNameHandler}>Switch Name Handler</button></p>
@@ -82,9 +86,9 @@ class App extends Component {
         <div>
           <ValidationComponent count = { counter }></ValidationComponent>
         </div> 
-        <div>
-          
-        </div>
+        
+          {charList}
+        
       
         
       </div>
